@@ -13,7 +13,8 @@ import static com.codeborne.selenide.Selenide.*;
 public class TestCleanWebForm {
     @BeforeAll
     static void beforeAll() {
-        Configuration.browserSize = "720x880";}
+        Configuration.browserSize = "720x880";
+    }
 
     @Test
     void FullTest() {
@@ -36,10 +37,9 @@ public class TestCleanWebForm {
         $("#city").click();
         $("#react-select-4-option-0").click();
 
-       $("#userNumber").setValue("9876543211").click();
+        $("#userNumber").setValue("9876543211").click();
 
         $("#submit").pressEnter();
-
 
         $x("//div[@class='table-responsive']").shouldHave(Condition.text("Ivan"));
         $x("//div[@class='table-responsive']").shouldHave(Condition.text("Kuzmin"));
