@@ -7,12 +7,13 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 
 import static com.codeborne.selenide.Selectors.byTagAndText;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 
 public class TestWebForm {
     @Test
-    void SmoakSearch() {
+    void SmoakTest() {
         Configuration.holdBrowserOpen = true;
         open("https://demoqa.com/automation-practice-form");
         $("#firstName").setValue("Иван").pressTab();
@@ -72,6 +73,13 @@ public class TestWebForm {
         $(".react-datepicker__year-select").click();
         $("option[value='2005']").click();
         $("div[aria-label='Choose Sunday, April 3rd, 2005']").click();*/
+
+        //Город
+//        $("[id = stateCity-wrapper]").$(byText("Haryana")).click();
+//        $("[id = city]").click();
+//        $("[id = stateCity-wrapper]").$(byText("Karnal")).click();
+//        $("[id = submit]").click();
+
 
         //Проверка финальной формы
         $x("//div[@class='table-responsive']").shouldHave(Condition.text("Иван"));
