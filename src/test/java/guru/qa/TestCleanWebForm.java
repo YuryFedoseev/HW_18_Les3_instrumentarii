@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 
 import static com.codeborne.selenide.Selectors.byTagAndText;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class TestCleanWebForm {
@@ -18,8 +19,11 @@ public class TestCleanWebForm {
 
     @Test
     void FullTest() {
-        Configuration.holdBrowserOpen = true;
         open("https://demoqa.com/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+        Configuration.holdBrowserOpen = true;
+
         $("#firstName").setValue("Ivan").pressTab();
         $("#lastName").setValue("Kuzmin").pressTab();
         $("#userEmail").setValue("mail@muil.ru").pressTab();
@@ -32,10 +36,11 @@ public class TestCleanWebForm {
         $("#uploadPicture").uploadFile(pictures);
 
         $("#state").click();
-        $("#react-select-3-option-0").click();
 
+        $("#stateCity-wrapper").$(byText("Haryana")).click();
         $("#city").click();
-        $("#react-select-4-option-0").click();
+        $("#stateCity-wrapper").$(byText("Karnal")).click();
+        $("#submit").click();
 
         $("#userNumber").setValue("9876543211").click();
 
@@ -50,7 +55,7 @@ public class TestCleanWebForm {
         $x("//div[@class='table-responsive']").shouldHave(Condition.text("Music"));
         $x("//div[@class='table-responsive']").shouldHave(Condition.text("379-scaled.jpg"));
         $x("//div[@class='table-responsive']").shouldHave(Condition.text("Lenina Street"));
-        $x("//div[@class='table-responsive']").shouldHave(Condition.text("NCR Delhi"));
+        $x("//div[@class='table-responsive']").shouldHave(Condition.text("Haryana Karnal"));
 
     }
 }
