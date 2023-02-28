@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class TestWebForm {
     @Test
-    void SmoakTest() {
+    void smoakTest() {
         Configuration.holdBrowserOpen = true;
         open("https://demoqa.com/automation-practice-form");
         $("#firstName").setValue("Иван").pressTab();
@@ -39,7 +39,7 @@ public class TestWebForm {
     }
 
     @Test
-    void FullTest() {
+    void fullTest() {
         Configuration.holdBrowserOpen = true;
         open("https://demoqa.com/automation-practice-form");
         $("#firstName").setValue("Иван").pressTab();

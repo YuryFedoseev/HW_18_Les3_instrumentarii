@@ -15,14 +15,14 @@ public class TestCleanWebForm {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "720x880";
+        Configuration.holdBrowserOpen = true;
     }
 
     @Test
-    void FullTest() {
+    void fullTest() {
         open("https://demoqa.com/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
-        Configuration.holdBrowserOpen = true;
 
         $("#firstName").setValue("Ivan").pressTab();
         $("#lastName").setValue("Kuzmin").pressTab();
